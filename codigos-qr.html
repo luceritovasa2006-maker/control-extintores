@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Códigos QR - Extintores</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f4f1;
+}
+
+header {
+    background: #b6d7a8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #6aa84f;
+}
+
+header h1 {
+    margin: 0;
+    color: #1f4d1f;
+}
+
+header p {
+    color: #365b36;
+}
+
+.menu {
+    background: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.menu button {
+    background: #38761d;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.botones {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.botones button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.imprimir {
+    background: #38761d;
+    color: white;
+}
+
+#contenedorQR {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tarjetaQR {
+    background: white;
+    border: 2px solid #6aa84f;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+.tarjetaQR h2 {
+    margin: 0 0 5px 0;
+    color: #274e13;
+    font-size: 20px;
+}
+
+.tarjetaQR h3 {
+    margin: 5px 0 12px;
+    font-size: 14px;
+    color: #444;
+}
+
+.tarjetaQR canvas {
+    width: 180px !important;
+    height: 180px !important;
+    margin: auto;
+}
+
+.numero {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.nota {
+    font-size: 11px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.direccion {
+    margin-top: 10px;
+    padding: 8px;
+    background: #eeeeee;
+    border-radius: 5px;
+    font-size: 10px;
+    word-break: break-all;
+    color: #333;
+}
+
+@media(max-width:900px) {
+
+    #contenedorQR {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:600px) {
+
+    #contenedorQR {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header,
+    .menu,
+    .botones,
+    .direccion {
+        display: none;
+    }
+
+    .contenedor {
+        width: 100%;
+        margin: 0;
+    }
+
+    #contenedorQR {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .tarjetaQR {
+        border: 1px solid #333;
+        padding: 8px;
+    }
+
+    .tarjetaQR canvas {
+        width: 140px !important;
+        height: 140px !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+CÓDIGOS QR DE EXTINTORES
+</h1>
+
+<p>
+Cada código abre directamente el informe del extintor.
+</p>
+
+</header>
+
+<div class="menu">
+
+<button
+onclick="window.location.href='index.html'">
+
+⬅ VOLVER AL INVENTARIO
+
+</button>
+
+</div>
+
+<div class="contenedor">
+
+<div class="botones">
+
+<button
+class="imprimir"
+onclick="window.print()">
+
+🖨 IMPRIMIR TODOS LOS QR
+
+</button>
+
+</div>
+
+<div id="contenedorQR"></div>
+
+</div>
+
+<script src="datos.js"></script>
+
+<script>
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+const contenedor =
+document.getElementById("contenedorQR");
+
+
+/* =====================================================
+   GENERAR TODOS LOS QR
+===================================================== */
+
+function generarTodosLosQR() {
+
+
+    contenedor.innerHTML = "";
+
+
+    if (typeof extintores === "undefined") {
+
+        contenedor.innerHTML = `
+
+            <div style="
+                background:#f4cccc;
+                color:#990000;
+                padding:15px;
+                border-radius:8px;
+                text-align:center;
+                font-weight:bold;
+            ">
+
+                ❌ No se pudo cargar datos.js.
+
+                <br><br>
+
+                Verifica que datos.js esté en la misma carpeta
+                que codigos-qr.html.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    extintores.forEach(function(ext) {
+
+
+        /* =============================================
+           CREAR TARJETA
+        ============================================= */
+
+        const tarjeta =
+            document.createElement("div");
+
+
+        tarjeta.className =
+            "tarjetaQR";
+
+
+        tarjeta.innerHTML = `
+
+            <h2>
+                EXTINTOR N° ${ext.id}
+            </h2>
+
+            <h3>
+                ${ext.ubicacion || ""}
+            </h3>
+
+            <canvas
+                id="qr-${ext.id}">
+            </canvas>
+
+            <div class="numero">
+
+                N° ${ext.id}
+
+            </div>
+
+            <div class="nota">
+
+                Escanee para abrir la ficha de inspección
+
+            </div>
+
+            <div
+                class="direccion"
+                id="direccion-${ext.id}">
+
+            </div>
+
+        `;
+
+
+        contenedor.appendChild(tarjeta);
+
+
+        /* =============================================
+           URL QUE UTILIZARÁ EL CÓDIGO QR
+        ============================================= */
+
+        const direccion =
+            "http://10.10.51.100:5500/inspeccion.html?id=" +
+            encodeURIComponent(ext.id);
+
+
+        /* =============================================
+           MOSTRAR URL DEBAJO DEL QR
+        ============================================= */
+
+        document.getElementById(
+            "direccion-" + ext.id
+        ).innerText = direccion;
+
+
+        /* =============================================
+           GENERAR CÓDIGO QR
+        ============================================= */
+
+        new QRious({
+
+            element:
+                document.getElementById(
+                    "qr-" + ext.id
+                ),
+
+            value:
+                direccion,
+
+            size:
+                400,
+
+            level:
+                "H"
+
+        });
+
+
+    });
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+generarTodosLosQR();
+
+
+</script>
+
+</body>
+
+</html>

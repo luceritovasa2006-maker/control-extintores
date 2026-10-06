@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inspecciones Guardadas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f4f1;
+    color: #222;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+header {
+    background: #b6d7a8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #6aa84f;
+}
+
+header h1 {
+    margin: 0;
+    color: #1f4d1f;
+}
+
+header p {
+    margin: 7px 0 0;
+    color: #365b36;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
+    background: white;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+}
+
+.menu button {
+    border: none;
+    background: #38761d;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu button:hover {
+    background: #274e13;
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.contenedor {
+    width: 97%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.10);
+}
+
+
+/* =========================
+   TITULO
+========================= */
+
+.titulo {
+    color: #1f4d1f;
+    margin-top: 0;
+}
+
+
+/* =========================
+   MENSAJE
+========================= */
+
+.mensaje {
+    padding: 15px;
+    background: #edf5e9;
+    border-left: 5px solid #6aa84f;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TABLA
+========================= */
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid #aaa;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+}
+
+th {
+    background: #b6d7a8;
+    border: 1px solid #999;
+    padding: 10px;
+    font-size: 13px;
+}
+
+td {
+    border: 1px solid #aaa;
+    padding: 9px;
+    font-size: 13px;
+    background: white;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background: #f8fbf8;
+}
+
+
+/* =========================
+   ESTADOS
+========================= */
+
+.estado {
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.vencido {
+    background: #f4cccc;
+    color: #990000;
+}
+
+.proximo {
+    background: #fff2cc;
+    color: #7f6000;
+}
+
+.bueno {
+    background: #d9ead3;
+    color: #274e13;
+}
+
+.sin-revisar {
+    background: #eeeeee;
+    color: #555;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn {
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.ver {
+    background: #38761d;
+}
+
+.btn:hover {
+    opacity: .85;
+}
+
+
+/* =========================
+   OBSERVACIONES
+========================= */
+
+.observaciones {
+    max-width: 250px;
+    white-space: normal;
+}
+
+
+/* =========================
+   SIN REGISTROS
+========================= */
+
+.sin-registros {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 17px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:700px) {
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .contenedor {
+        width: 99%;
+        padding: 10px;
+    }
+
+    .menu button {
+        width: 100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
+
+<header>
+
+<h1>
+CONTROL GENERAL DE EXTINTORES
+</h1>
+
+<p>
+Registro de inspecciones guardadas
+</p>
+
+</header>
+
+
+<!-- =========================
+     MENÚ
+========================= -->
+
+<div class="menu">
+
+<button onclick="window.location.href='index.html'">
+📋 INVENTARIO
+</button>
+
+<button onclick="window.location.href='codigos-qr.html'">
+🔳 CÓDIGOS QR
+</button>
+
+<button onclick="window.location.href='registros.html'">
+📋 INSPECCIONES GUARDADAS
+</button>
+
+</div>
+
+
+<!-- =========================
+     CONTENIDO
+========================= -->
+
+<div class="contenedor">
+
+<h2 class="titulo">
+Inspecciones guardadas
+</h2>
+
+<div class="mensaje">
+
+Aquí aparecen las inspecciones que hayas guardado desde la página de inspección.
+
+</div>
+
+
+<div class="tabla-contenedor">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>EXTINTOR</th>
+
+<th>UBICACIÓN</th>
+
+<th>TIPO</th>
+
+<th>CAPACIDAD</th>
+
+<th>PROCESO</th>
+
+<th>VENCIMIENTO</th>
+
+<th>ESTADO</th>
+
+<th>OBSERVACIONES</th>
+
+<th>FECHA DE GUARDADO</th>
+
+<th>ACCIÓN</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="tablaRegistros">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     DATOS
+========================= -->
+
+<script src="datos.js"></script>
+
+
+<script>
+
+/* =====================================================
+   MOSTRAR REGISTROS GUARDADOS
+===================================================== */
+
+function mostrarRegistros() {
+
+    const tabla =
+        document.getElementById("tablaRegistros");
+
+    tabla.innerHTML = "";
+
+    let encontrados = 0;
+
+
+    /* Verificar datos.js */
+
+    if (typeof extintores === "undefined") {
+
+        tabla.innerHTML = `
+            <tr>
+                <td colspan="10" class="sin-registros">
+                    ❌ No se pudo cargar datos.js
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    /* =================================================
+       RECORRER TODOS LOS EXTINTORES
+    ================================================= */
+
+    extintores.forEach(function(ext) {
+
+        let inspeccion = null;
+
+        try {
+
+            inspeccion =
+                JSON.parse(
+                    localStorage.getItem(
+                        "inspeccion_" + ext.id
+                    )
+                );
+
+        } catch(error) {
+
+            inspeccion = null;
+
+        }
+
+
+        /* Si no tiene inspección, no mostrarlo */
+
+        if (!inspeccion) {
+
+            return;
+
+        }
+
+
+        encontrados++;
+
+
+        /* =========================
+           ESTADO
+        ========================= */
+
+        let estado =
+            inspeccion.estado || "SIN REVISAR";
+
+        let clase =
+            "sin-revisar";
+
+
+        if (estado === "VENCIDO") {
+
+            clase = "vencido";
+
+        }
+
+        else if (estado === "PRÓXIMO A VENCER") {
+
+            clase = "proximo";
+
+        }
+
+        else if (estado === "BUENO / AL DÍA") {
+
+            clase = "bueno";
+
+        }
+
+
+        /* =========================
+           CREAR FILA
+        ========================= */
+
+        const fila =
+            document.createElement("tr");
+
+
+        fila.innerHTML = `
+
+            <td>
+                <b>
+                    ${inspeccion.numero || ext.id}
+                </b>
+            </td>
+
+            <td>
+                ${inspeccion.ubicacion || ext.ubicacion || ""}
+            </td>
+
+            <td>
+                ${inspeccion.tipo || ext.tipo || ""}
+            </td>
+
+            <td>
+                ${inspeccion.capacidad || ext.capacidad || ""}
+            </td>
+
+            <td>
+                ${inspeccion.proceso || ""}
+            </td>
+
+            <td>
+                ${inspeccion.vencimiento || ""}
+            </td>
+
+            <td>
+
+                <span class="estado ${clase}">
+                    ${estado}
+                </span>
+
+            </td>
+
+            <td class="observaciones">
+                ${inspeccion.observaciones || "Sin observaciones"}
+            </td>
+
+            <td>
+                ${inspeccion.fechaGuardado || ""}
+            </td>
+
+            <td>
+
+                <button
+                    class="btn ver"
+                    onclick="verInspeccion(${ext.id})">
+
+                    🔎 VER
+
+                </button>
+
+            </td>
+
+        `;
+
+
+        tabla.appendChild(fila);
+
+    });
+
+
+    /* =================================================
+       SI NO HAY REGISTROS
+    ================================================= */
+
+    if (encontrados === 0) {
+
+        tabla.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="10"
+                    class="sin-registros">
+
+                    📋 Todavía no hay inspecciones guardadas.
+
+                    <br>
+                    <br>
+
+                    Escanea un código QR, realiza una inspección
+                    y presiona GUARDAR.
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   VER INSPECCIÓN
+===================================================== */
+
+function verInspeccion(id) {
+
+    window.location.href =
+        "inspeccion.html?id=" +
+        encodeURIComponent(id);
+
+}
+
+
+/* =====================================================
+   CARGAR REGISTROS
+===================================================== */
+
+mostrarRegistros();
+
+</script>
+
+
+</body>
+
+</html>
