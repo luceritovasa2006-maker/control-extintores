@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="es">
@@ -242,7 +243,6 @@ onclick="window.print()">
 
 <script>
 
-
 /* =====================================================
    CONTENEDOR
 ===================================================== */
@@ -257,9 +257,7 @@ document.getElementById("contenedorQR");
 
 function generarTodosLosQR() {
 
-
     contenedor.innerHTML = "";
-
 
     if (typeof extintores === "undefined") {
 
@@ -299,7 +297,6 @@ function generarTodosLosQR() {
 
         const tarjeta =
             document.createElement("div");
-
 
         tarjeta.className =
             "tarjetaQR";
@@ -344,11 +341,11 @@ function generarTodosLosQR() {
 
 
         /* =============================================
-           URL QUE UTILIZARÁ EL CÓDIGO QR
+           URL PÚBLICA DEL CÓDIGO QR
         ============================================= */
 
         const direccion =
-            "http://10.10.51.100:5500/inspeccion.html?id=" +
+            "https://luceritovasa2006-maker.github.io/control-extintores/inspeccion.html?id=" +
             encodeURIComponent(ext.id);
 
 
@@ -401,3 +398,4 @@ generarTodosLosQR();
 </body>
 
 </html>
+```
