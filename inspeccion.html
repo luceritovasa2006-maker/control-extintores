@@ -164,7 +164,8 @@
 
         select,
         input[type="date"],
-        textarea {
+        textarea,
+        input[type="file"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #bbb;
@@ -904,6 +905,29 @@
             </div>
 
 
+            <!-- REGISTRO FOTOGRÁFICO -->
+
+            <h2>
+                Registro Fotográfico
+            </h2>
+
+            <div class="campo">
+                <label for="foto-extintor">Tomar o adjuntar foto del estado actual:</label>
+                
+                <input 
+                    type="file" 
+                    id="foto-extintor" 
+                    accept="image/*" 
+                    capture="environment"
+                >
+                
+                <!-- Vista previa de la foto -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <img id="preview-foto" src="" alt="Vista previa de la foto" style="display: none; max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ccc;">
+                </div>
+            </div>
+
+
             <!-- DATOS -->
 
             <h2>
@@ -1026,6 +1050,32 @@
 
 
 <script>
+
+/* =====================================================
+   MANEJO DE FOTOGRAFÍA (CÁMARA / ARCHIVO)
+===================================================== */
+
+let fotoBase64 = "";
+
+const inputFoto = document.getElementById('foto-extintor');
+const previewFoto = document.getElementById('preview-foto');
+
+inputFoto.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            fotoBase64 = event.target.result;
+            previewFoto.src = fotoBase64;
+            previewFoto.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        fotoBase64 = "";
+        previewFoto.style.display = 'none';
+        previewFoto.src = "";
+    }
+});
 
 
 /* =====================================================
@@ -1260,6 +1310,12 @@ function guardarInspeccion() {
             document.getElementById("observaciones").value,
 
 
+        /* FOTOGRAFÍA */
+
+        foto:
+            fotoBase64,
+
+
         /* PROCESO */
 
         proceso:
@@ -1424,6 +1480,18 @@ function cargarInspeccionGuardada() {
 
         document.getElementById("observaciones").value =
             inspeccion.observaciones || "";
+
+
+        /* FOTOGRAFÍA */
+
+        fotoBase64 = inspeccion.foto || "";
+        if (fotoBase64) {
+            previewFoto.src = fotoBase64;
+            previewFoto.style.display = 'block';
+        } else {
+            previewFoto.style.display = 'none';
+            previewFoto.src = "";
+        }
 
 
         /* PROCESO */
