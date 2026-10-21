@@ -1292,155 +1292,64 @@ function guardarInspeccion() {
 
     const inspeccion = {
 
-        id:
-            extintor.id,
-
-        numero:
-            extintor.id,
-
-        ubicacion:
-            extintor.ubicacion,
-
-        tipo:
-            extintor.tipo,
-
-        agente:
-            extintor.agente,
-
-        capacidad:
-            extintor.capacidad,
-
-        altura:
-            extintor.altura,
-
-        fechaRegistro:
-            extintor.fecha,
-
-        revision:
-            extintor.revision,
-
-        vencimientoProgramado:
-            `${extintor.mesVencimiento} ${extintor.anioVencimiento}`,
-
+        id: extintor.id,
+        numero: extintor.id,
+        ubicacion: extintor.ubicacion,
+        tipo: extintor.tipo,
+        agente: extintor.agente,
+        capacidad: extintor.capacidad,
+        altura: extintor.altura,
+        fechaRegistro: extintor.fecha,
+        revision: extintor.revision,
+        vencimientoProgramado: `${extintor.mesVencimiento} ${extintor.anioVencimiento}`,
 
         /* VERIFICACIONES */
-
-        pintura:
-            document.getElementById("pintura").value,
-
-        sello:
-            document.getElementById("sello").value,
-
-        anillo:
-            document.getElementById("anillo").value,
-
-        manometro:
-            document.getElementById("manometro").value,
-
-        valvula:
-            document.getElementById("valvula").value,
-
-        manguera:
-            document.getElementById("manguera").value,
-
-        boquilla:
-            document.getElementById("boquilla").value,
-
-        pasador:
-            document.getElementById("pasador").value,
-
-        soporte:
-            document.getElementById("soporte").value,
-
-        manija:
-            document.getElementById("manija").value,
-
-        cilindro:
-            document.getElementById("cilindro").value,
-
-        senalizacion:
-            document.getElementById("senalizacion").value,
-
-        demarcacion:
-            document.getElementById("demarcacion").value,
-
+        pintura: document.getElementById("pintura").value,
+        sello: document.getElementById("sello").value,
+        anillo: document.getElementById("anillo").value,
+        manometro: document.getElementById("manometro").value,
+        valvula: document.getElementById("valvula").value,
+        manguera: document.getElementById("manguera").value,
+        boquilla: document.getElementById("boquilla").value,
+        pasador: document.getElementById("pasador").value,
+        soporte: document.getElementById("soporte").value,
+        manija: document.getElementById("manija").value,
+        cilindro: document.getElementById("cilindro").value,
+        senalizacion: document.getElementById("senalizacion").value,
+        demarcacion: document.getElementById("demarcacion").value,
 
         /* OBSERVACIONES INDIVIDUALES */
-
-        obs_pintura:
-            document.getElementById("obs_pintura").value,
-
-        obs_sello:
-            document.getElementById("obs_sello").value,
-
-        obs_anillo:
-            document.getElementById("obs_anillo").value,
-
-        obs_manometro:
-            document.getElementById("obs_manometro").value,
-
-        obs_valvula:
-            document.getElementById("obs_valvula").value,
-
-        obs_manguera:
-            document.getElementById("obs_manguera").value,
-
-        obs_boquilla:
-            document.getElementById("obs_boquilla").value,
-
-        obs_pasador:
-            document.getElementById("obs_pasador").value,
-
-        obs_soporte:
-            document.getElementById("obs_soporte").value,
-
-        obs_manija:
-            document.getElementById("obs_manija").value,
-
-        obs_cilindro:
-            document.getElementById("obs_cilindro").value,
-
-        obs_senalizacion:
-            document.getElementById("obs_senalizacion").value,
-
-        obs_demarcacion:
-            document.getElementById("obs_demarcacion").value,
-
+        obs_pintura: document.getElementById("obs_pintura").value,
+        obs_sello: document.getElementById("obs_sello").value,
+        obs_anillo: document.getElementById("obs_anillo").value,
+        obs_manometro: document.getElementById("obs_manometro").value,
+        obs_valvula: document.getElementById("obs_valvula").value,
+        obs_manguera: document.getElementById("obs_manguera").value,
+        obs_boquilla: document.getElementById("obs_boquilla").value,
+        obs_pasador: document.getElementById("obs_pasador").value,
+        obs_soporte: document.getElementById("obs_soporte").value,
+        obs_manija: document.getElementById("obs_manija").value,
+        obs_cilindro: document.getElementById("obs_cilindro").value,
+        obs_senalizacion: document.getElementById("obs_senalizacion").value,
+        obs_demarcacion: document.getElementById("obs_demarcacion").value,
 
         /* REVISADO POR */
-
-        revisado_por:
-            document.getElementById("revisado_por").value,
-
+        revisado_por: document.getElementById("revisado_por").value,
 
         /* FOTOGRAFÍA */
-
-        foto:
-            fotoBase64,
-
+        foto: fotoBase64,
 
         /* PROCESO */
-
-        proceso:
-            document.getElementById("proceso").value,
-
+        proceso: document.getElementById("proceso").value,
 
         /* VENCIMIENTO */
-
-        vencimiento:
-            document.getElementById("vencimiento").value,
-
+        vencimiento: document.getElementById("vencimiento").value,
 
         /* ESTADO */
-
-        estado:
-            document.getElementById("estado").value,
-
+        estado: document.getElementById("estado").value,
 
         /* FECHA DE GUARDADO */
-
-        fechaGuardado:
-            new Date().toLocaleString("es-CO")
+        fechaGuardado: new Date().toLocaleString("es-CO")
 
     };
 
@@ -1450,11 +1359,8 @@ function guardarInspeccion() {
     ===================================================== */
 
     localStorage.setItem(
-
         `inspeccion_${extintor.id}`,
-
         JSON.stringify(inspeccion)
-
     );
 
 
@@ -1522,12 +1428,8 @@ function cargarInspeccionGuardada() {
         );
 
 
-    /* Si nunca se ha guardado, no hacemos nada */
-
     if (!guardada) {
-
         return;
-
     }
 
 
@@ -1536,99 +1438,40 @@ function cargarInspeccionGuardada() {
         const inspeccion =
             JSON.parse(guardada);
 
-
         /* VERIFICACIONES */
-
-        document.getElementById("pintura").value =
-            inspeccion.pintura || "";
-
-        document.getElementById("sello").value =
-            inspeccion.sello || "";
-
-        document.getElementById("anillo").value =
-            inspeccion.anillo || "";
-
-        document.getElementById("manometro").value =
-            inspeccion.manometro || "";
-
-        document.getElementById("valvula").value =
-            inspeccion.valvula || "";
-
-        document.getElementById("manguera").value =
-            inspeccion.manguera || "";
-
-        document.getElementById("boquilla").value =
-            inspeccion.boquilla || "";
-
-        document.getElementById("pasador").value =
-            inspeccion.pasador || "";
-
-        document.getElementById("soporte").value =
-            inspeccion.soporte || "";
-
-        document.getElementById("manija").value =
-            inspeccion.manija || "";
-
-        document.getElementById("cilindro").value =
-            inspeccion.cilindro || "";
-
-        document.getElementById("senalizacion").value =
-            inspeccion.senalizacion || "";
-
-        document.getElementById("demarcacion").value =
-            inspeccion.demarcacion || "";
-
+        document.getElementById("pintura").value = inspeccion.pintura || "";
+        document.getElementById("sello").value = inspeccion.sello || "";
+        document.getElementById("anillo").value = inspeccion.anillo || "";
+        document.getElementById("manometro").value = inspeccion.manometro || "";
+        document.getElementById("valvula").value = inspeccion.valvula || "";
+        document.getElementById("manguera").value = inspeccion.manguera || "";
+        document.getElementById("boquilla").value = inspeccion.boquilla || "";
+        document.getElementById("pasador").value = inspeccion.pasador || "";
+        document.getElementById("soporte").value = inspeccion.soporte || "";
+        document.getElementById("manija").value = inspeccion.manija || "";
+        document.getElementById("cilindro").value = inspeccion.cilindro || "";
+        document.getElementById("senalizacion").value = inspeccion.senalizacion || "";
+        document.getElementById("demarcacion").value = inspeccion.demarcacion || "";
 
         /* OBSERVACIONES INDIVIDUALES */
-
-        document.getElementById("obs_pintura").value =
-            inspeccion.obs_pintura || "";
-
-        document.getElementById("obs_sello").value =
-            inspeccion.obs_sello || "";
-
-        document.getElementById("obs_anillo").value =
-            inspeccion.obs_anillo || "";
-
-        document.getElementById("obs_manometro").value =
-            inspeccion.obs_manometro || "";
-
-        document.getElementById("obs_valvula").value =
-            inspeccion.obs_valvula || "";
-
-        document.getElementById("obs_manguera").value =
-            inspeccion.obs_manguera || "";
-
-        document.getElementById("obs_boquilla").value =
-            inspeccion.obs_boquilla || "";
-
-        document.getElementById("obs_pasador").value =
-            inspeccion.obs_pasador || "";
-
-        document.getElementById("obs_soporte").value =
-            inspeccion.obs_soporte || "";
-
-        document.getElementById("obs_manija").value =
-            inspeccion.obs_manija || "";
-
-        document.getElementById("obs_cilindro").value =
-            inspeccion.obs_cilindro || "";
-
-        document.getElementById("obs_senalizacion").value =
-            inspeccion.obs_senalizacion || "";
-
-        document.getElementById("obs_demarcacion").value =
-            inspeccion.obs_demarcacion || "";
-
+        document.getElementById("obs_pintura").value = inspeccion.obs_pintura || "";
+        document.getElementById("obs_sello").value = inspeccion.obs_sello || "";
+        document.getElementById("obs_anillo").value = inspeccion.obs_anillo || "";
+        document.getElementById("obs_manometro").value = inspeccion.obs_manometro || "";
+        document.getElementById("obs_valvula").value = inspeccion.obs_valvula || "";
+        document.getElementById("obs_manguera").value = inspeccion.obs_manguera || "";
+        document.getElementById("obs_boquilla").value = inspeccion.obs_boquilla || "";
+        document.getElementById("obs_pasador").value = inspeccion.obs_pasador || "";
+        document.getElementById("obs_soporte").value = inspeccion.obs_soporte || "";
+        document.getElementById("obs_manija").value = inspeccion.obs_manija || "";
+        document.getElementById("obs_cilindro").value = inspeccion.obs_cilindro || "";
+        document.getElementById("obs_senalizacion").value = inspeccion.obs_senalizacion || "";
+        document.getElementById("obs_demarcacion").value = inspeccion.obs_demarcacion || "";
 
         /* REVISADO POR */
-
-        document.getElementById("revisado_por").value =
-            inspeccion.revisado_por || "";
-
+        document.getElementById("revisado_por").value = inspeccion.revisado_por || "";
 
         /* FOTOGRAFÍA */
-
         fotoBase64 = inspeccion.foto || "";
         if (fotoBase64) {
             previewFoto.src = fotoBase64;
@@ -1638,33 +1481,18 @@ function cargarInspeccionGuardada() {
             previewFoto.src = "";
         }
 
-
         /* PROCESO */
-
-        document.getElementById("proceso").value =
-            inspeccion.proceso || "";
-
+        document.getElementById("proceso").value = inspeccion.proceso || "";
 
         /* VENCIMIENTO */
-
-        document.getElementById("vencimiento").value =
-            inspeccion.vencimiento || "";
-
+        document.getElementById("vencimiento").value = inspeccion.vencimiento || "";
 
         /* ESTADO */
-
-        document.getElementById("estado").value =
-            inspeccion.estado || "";
-
+        document.getElementById("estado").value = inspeccion.estado || "";
 
     }
     catch (error) {
-
-        console.error(
-            "Error al cargar la inspección guardada:",
-            error
-        );
-
+        console.error("Error al cargar la inspección guardada:", error);
     }
 
 }
@@ -1675,7 +1503,6 @@ function cargarInspeccionGuardada() {
 ===================================================== */
 
 cargarInspeccionGuardada();
-
 
 </script>
 
