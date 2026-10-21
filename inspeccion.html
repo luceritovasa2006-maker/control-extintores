@@ -158,14 +158,11 @@
             font-weight: bold;
         }
 
-        td:last-child {
-            text-align: center;
-        }
-
         select,
         input[type="date"],
         textarea,
-        input[type="file"] {
+        input[type="file"],
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #bbb;
@@ -483,12 +480,16 @@
 
                         <tr>
 
-                            <th>
+                            <th style="width: 25%;">
                                 Elemento a verificar
                             </th>
 
-                            <th>
+                            <th style="width: 20%;">
                                 Cumple/No Cumple
+                            </th>
+
+                            <th style="width: 55%;">
+                                Observaciones
                             </th>
                             
                         </tr>
@@ -525,6 +526,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_pintura" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -552,6 +557,10 @@
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_sello" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -583,6 +592,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_anillo" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -610,6 +623,10 @@
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manometro" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -641,6 +658,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_valvula" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -668,6 +689,10 @@
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manguera" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -699,6 +724,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_boquilla" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -726,6 +755,10 @@
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_pasador" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -757,6 +790,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_soporte" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -784,6 +821,10 @@
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manija" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -815,6 +856,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_cilindro" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -844,6 +889,10 @@
 
                             </td>
 
+                            <td>
+                                <input type="text" id="obs_senalizacion" placeholder="Observación...">
+                            </td>
+
                         </tr>
 
 
@@ -868,38 +917,13 @@
                                     <option value="NO">
                                         NO
                                     </option>
-                               
-                                    <td>
-                                        Observaciónes
-                                    </td>
-
-                                     
-                                    <h2>
-                                Revisado Por
-                            </td>
-
-                            <td>
-
-                                <select id="Revisado Por">
-
-                                    <option value="">
-                                        Seleccione
-                                    </option>
-
-                                    <option value="Paula Patiño">
-                                        Paula Patiño
-                                    </option>
-
-                                    <option value="Andres Garzon">
-                                        Andres Garzon
-                                    </option>
-
-                                    <option value="Angela Tijaro">
-                                        Angela Tijaro
-                                    </option>
 
                                 </select>
 
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_demarcacion" placeholder="Observación...">
                             </td>
 
                         </tr>
@@ -908,6 +932,37 @@
                     </tbody>
 
                 </table>
+
+            </div>
+
+
+            <!-- REVISADO POR (FUERA DE LA TABLA) -->
+
+            <div class="campo">
+
+                <label for="revisado_por">
+                    Revisado Por
+                </label>
+
+                <select id="revisado_por">
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="Paula Patiño">
+                        Paula Patiño
+                    </option>
+
+                    <option value="Andres Garzon">
+                        Andres Garzon
+                    </option>
+
+                    <option value="Angela Tijaro">
+                        Angela Tijaro
+                    </option>
+
+                </select>
 
             </div>
             
@@ -1310,10 +1365,52 @@ function guardarInspeccion() {
             document.getElementById("demarcacion").value,
 
 
-        /* OBSERVACIONES */
+        /* OBSERVACIONES INDIVIDUALES */
 
-        observaciones:
-            document.getElementById("observaciones").value,
+        obs_pintura:
+            document.getElementById("obs_pintura").value,
+
+        obs_sello:
+            document.getElementById("obs_sello").value,
+
+        obs_anillo:
+            document.getElementById("obs_anillo").value,
+
+        obs_manometro:
+            document.getElementById("obs_manometro").value,
+
+        obs_valvula:
+            document.getElementById("obs_valvula").value,
+
+        obs_manguera:
+            document.getElementById("obs_manguera").value,
+
+        obs_boquilla:
+            document.getElementById("obs_boquilla").value,
+
+        obs_pasador:
+            document.getElementById("obs_pasador").value,
+
+        obs_soporte:
+            document.getElementById("obs_soporte").value,
+
+        obs_manija:
+            document.getElementById("obs_manija").value,
+
+        obs_cilindro:
+            document.getElementById("obs_cilindro").value,
+
+        obs_senalizacion:
+            document.getElementById("obs_senalizacion").value,
+
+        obs_demarcacion:
+            document.getElementById("obs_demarcacion").value,
+
+
+        /* REVISADO POR */
+
+        revisado_por:
+            document.getElementById("revisado_por").value,
 
 
         /* FOTOGRAFÍA */
@@ -1482,10 +1579,52 @@ function cargarInspeccionGuardada() {
             inspeccion.demarcacion || "";
 
 
-        /* OBSERVACIONES */
+        /* OBSERVACIONES INDIVIDUALES */
 
-        document.getElementById("observaciones").value =
-            inspeccion.observaciones || "";
+        document.getElementById("obs_pintura").value =
+            inspeccion.obs_pintura || "";
+
+        document.getElementById("obs_sello").value =
+            inspeccion.obs_sello || "";
+
+        document.getElementById("obs_anillo").value =
+            inspeccion.obs_anillo || "";
+
+        document.getElementById("obs_manometro").value =
+            inspeccion.obs_manometro || "";
+
+        document.getElementById("obs_valvula").value =
+            inspeccion.obs_valvula || "";
+
+        document.getElementById("obs_manguera").value =
+            inspeccion.obs_manguera || "";
+
+        document.getElementById("obs_boquilla").value =
+            inspeccion.obs_boquilla || "";
+
+        document.getElementById("obs_pasador").value =
+            inspeccion.obs_pasador || "";
+
+        document.getElementById("obs_soporte").value =
+            inspeccion.obs_soporte || "";
+
+        document.getElementById("obs_manija").value =
+            inspeccion.obs_manija || "";
+
+        document.getElementById("obs_cilindro").value =
+            inspeccion.obs_cilindro || "";
+
+        document.getElementById("obs_senalizacion").value =
+            inspeccion.obs_senalizacion || "";
+
+        document.getElementById("obs_demarcacion").value =
+            inspeccion.obs_demarcacion || "";
+
+
+        /* REVISADO POR */
+
+        document.getElementById("revisado_por").value =
+            inspeccion.revisado_por || "";
 
 
         /* FOTOGRAFÍA */

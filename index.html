@@ -3,261 +3,288 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Control General de Extintores</title>
+    <title>Control de Extintores</title>
 
-<style>
+    <style>
 
-* {
-    box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f1f4f1;
-    color: #222;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
 
-/* =========================
-   ENCABEZADO
-========================= */
+        .contenedor {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 15px;
+        }
 
-header {
-    background: #b6d7a8;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid #6aa84f;
-}
+        /* ==========================
+           ENCABEZADO
+        ========================== */
 
-header h1 {
-    margin: 0;
-    color: #1f4d1f;
-}
+        .encabezado {
+            background: #1f4d1f;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
 
-header p {
-    margin: 7px 0 0;
-    color: #365b36;
-}
+        .encabezado h1 {
+            margin: 0;
+            font-size: 27px;
+        }
 
+        .encabezado p {
+            margin: 8px 0 0;
+        }
 
-/* =========================
-   MENÚ
-========================= */
+        /* ==========================
+           PRIMERA PARTE
+        ========================== */
 
-.menu {
-    background: white;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    border-bottom: 1px solid #ccc;
-}
+        #paginaInformacion {
+            display: block;
+        }
 
-.menu button {
-    border: none;
-    background: #38761d;
-    color: white;
-    padding: 11px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .informacion {
+            background: white;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
 
-.menu button:hover {
-    background: #274e13;
-}
+        .dato {
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            padding: 15px;
+            background: #fafafa;
+        }
 
+        .dato .titulo {
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 7px;
+        }
 
-/* =========================
-   CONTENEDOR
-========================= */
+        .dato .valor {
+            font-size: 17px;
+            font-weight: bold;
+            word-break: break-word;
+        }
 
-.contenedor {
-    width: 97%;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.10);
-}
+        .boton-continuar {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
 
+        .btn-inspeccion {
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-/* =========================
-   BÚSQUEDA
-========================= */
+        .btn-inspeccion:hover {
+            opacity: 0.9;
+        }
 
-.busqueda {
-    margin-bottom: 15px;
-}
+        /* ==========================
+           SEGUNDA PARTE
+        ========================== */
 
-.busqueda input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #aaa;
-    border-radius: 6px;
-    font-size: 15px;
-}
+        #paginaInspeccion {
+            display: none;
+        }
 
+        .formulario {
+            background: white;
+            padding: 25px;
+            border-radius: 0 0 10px 10px;
+        }
 
-/* =========================
-   TABLA
-========================= */
+        h2 {
+            color: #6aa84f;
+            border-bottom: 2px solid #1f4d1f;
+            padding-bottom: 8px;
+            margin-top: 10px;
+        }
 
-.tabla-contenedor {
-    overflow-x: auto;
-    max-height: 650px;
-    overflow-y: auto;
-    border: 1px solid #aaa;
-}
+        /* ==========================
+           TABLA
+        ========================== */
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 1500px;
-}
+        .tabla-contenedor {
+            overflow-x: auto;
+        }
 
-th {
-    background: #b6d7a8;
-    border: 1px solid #999;
-    padding: 10px 8px;
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    font-size: 13px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
 
-td {
-    border: 1px solid #aaa;
-    padding: 8px;
-    font-size: 13px;
-    background: white;
-}
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 11px;
+        }
 
-tr:nth-child(even) td {
-    background: #f8fbf8;
-}
+        th {
+            background: #198754;
+            color: white;
+            text-align: center;
+        }
 
-tr:hover td {
-    background: #e8f3e5;
-}
+        td:first-child {
+            font-weight: bold;
+        }
 
+        select,
+        input[type="date"],
+        textarea,
+        input[type="file"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
 
-/* =========================
-   BOTONES
-========================= */
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
 
-.btn {
-    border: none;
-    color: white;
-    padding: 7px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 2px;
-}
+        .campo {
+            margin-top: 15px;
+        }
 
-.inspeccionar {
-    background: #38761d;
-}
+        .campo label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
 
-.qr {
-    background: #674ea7;
-}
+        /* ==========================
+           BOTONES
+        ========================== */
 
-.btn:hover {
-    opacity: .85;
-}
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
 
+        button {
+            border: none;
+            padding: 13px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
 
-/* =========================
-   ESTADOS
-========================= */
+        .guardar {
+            background: #198754;
+            color: white;
+            flex: 1;
+        }
 
-.estado {
-    padding: 5px 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-}
+        .volver {
+            background: #555;
+            color: white;
+        }
 
-.vencido {
-    background: #f4cccc;
-    color: #990000;
-}
+        button:hover {
+            opacity: 0.9;
+        }
 
-.proximo {
-    background: #fff2cc;
-    color: #7f6000;
-}
+        /* ==========================
+           MENSAJE
+        ========================== */
 
-.bueno {
-    background: #d9ead3;
-    color: #274e13;
-}
+        .mensaje {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
 
-.sin-revisar {
-    background: #eeeeee;
-    color: #555;
-}
+        .exito {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
 
+        .error {
+            background: #f8d7da;
+            color: #842029;
+        }
 
-/* =========================
-   INFORMACIÓN
-========================= */
+        /* ==========================
+           CELULAR
+        ========================== */
 
-.info {
-    margin-top: 15px;
-    padding: 12px;
-    background: #edf5e9;
-    border-left: 5px solid #6aa84f;
-}
+        @media (max-width: 850px) {
 
+            .informacion {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-/* =========================
-   MENSAJE DE ERROR
-========================= */
+        }
 
-.error {
-    display: none;
-    margin-bottom: 15px;
-    padding: 12px;
-    background: #f4cccc;
-    color: #990000;
-    border-radius: 6px;
-}
+        @media (max-width: 550px) {
 
+            .contenedor {
+                margin: 10px;
+                padding: 0;
+            }
 
-/* =========================
-   CELULAR
-========================= */
+            .encabezado h1 {
+                font-size: 22px;
+            }
 
-@media(max-width:700px) {
+            .informacion {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
 
-    header h1 {
-        font-size: 21px;
-    }
+            .formulario {
+                padding: 15px;
+            }
 
-    .contenedor {
-        width: 99%;
-        padding: 10px;
-    }
+            .botones {
+                flex-direction: column;
+            }
 
-    .menu {
-        flex-wrap: wrap;
-    }
+            button {
+                width: 100%;
+            }
 
-    .menu button {
-        width: 100%;
-    }
+        }
 
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -265,500 +292,1390 @@ tr:hover td {
 <body>
 
 
-<!-- =========================
-     ENCABEZADO
-========================= -->
-
-<header>
-
-<h1>
-CONTROL GENERAL DE EXTINTORES
-</h1>
-
-<p>
-Inventario y control de inspección
-</p>
-
-</header>
-
-
-<!-- =========================
-     MENÚ
-========================= -->
-
-<div class="menu">
-
-<button
-onclick="window.location.href='index.html'">
-
-📋 INVENTARIO
-
-</button>
-
-
-<button
-onclick="window.location.href='codigos-qr.html'">
-
-🔳 CÓDIGOS QR
-
-</button>
-
-</div>
-
-
-<!-- =========================
-     CONTENIDO
-========================= -->
-
 <div class="contenedor">
 
 
-<h2>
-Inventario de Extintores
-</h2>
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
+
+    <div class="encabezado">
+
+        <h1>
+            CONTROL DE EXTINTORES
+        </h1>
+
+        <p id="subtitulo">
+            Información del extintor
+        </p>
+
+    </div>
 
 
-<!-- BÚSQUEDA -->
+    <!-- =====================================================
+         PRIMERA PARTE
+    ====================================================== -->
 
-<div class="busqueda">
+    <div id="paginaInformacion">
 
-<input
-type="text"
-id="buscar"
-placeholder="Buscar por número, ubicación, tipo o capacidad..."
-onkeyup="buscarExtintor()">
+        <div class="informacion">
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    NÚMERO DE EXTINTOR
+                </div>
+
+                <div
+                    class="valor"
+                    id="numero">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    UBICACIÓN
+                </div>
+
+                <div
+                    class="valor"
+                    id="ubicacion">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    AGENTE / TIPO
+                </div>
+
+                <div
+                    class="valor"
+                    id="tipo">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    CAPACIDAD
+                </div>
+
+                <div
+                    class="valor"
+                    id="capacidad">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    ALTURA
+                </div>
+
+                <div
+                    class="valor"
+                    id="altura">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    FECHA DE REGISTRO
+                </div>
+
+                <div
+                    class="valor"
+                    id="fecha">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    REVISIÓN
+                </div>
+
+                <div
+                    class="valor"
+                    id="revision">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="titulo">
+                    VENCIMIENTO PROGRAMADO
+                </div>
+
+                <div
+                    class="valor"
+                    id="vencimientoProgramado">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="boton-continuar">
+
+            <button
+                class="btn-inspeccion"
+                onclick="mostrarInspeccion()">
+
+                ➡️ IR A INSPECCIÓN
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SEGUNDA PARTE
+    ====================================================== -->
+
+    <div id="paginaInspeccion">
+
+        <div class="formulario">
+
+
+            <h2>
+                Verificación del extintor
+            </h2>
+
+
+            <div class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th style="width: 25%;">
+                                Elemento a verificar
+                            </th>
+
+                            <th style="width: 20%;">
+                                Cumple/No Cumple
+                            </th>
+
+                            <th style="width: 55%;">
+                                Observaciones
+                            </th>
+                            
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                Pintura
+                            </td>
+
+                            <td>
+
+                                <select id="pintura">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_pintura" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Sello
+                            </td>
+
+                            <td>
+
+                                <select id="sello">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_sello" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Anillo
+                            </td>
+
+                            <td>
+
+                                <select id="anillo">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_anillo" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Manómetro
+                            </td>
+
+                            <td>
+
+                                <select id="manometro">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manometro" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Válvula
+                            </td>
+
+                            <td>
+
+                                <select id="valvula">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_valvula" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Manguera
+                            </td>
+
+                            <td>
+
+                                <select id="manguera">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manguera" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Boquilla
+                            </td>
+
+                            <td>
+
+                                <select id="boquilla">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_boquilla" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Pasador
+                            </td>
+
+                            <td>
+
+                                <select id="pasador">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_pasador" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Soporte
+                            </td>
+
+                            <td>
+
+                                <select id="soporte">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_soporte" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Manija
+                            </td>
+
+                            <td>
+
+                                <select id="manija">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_manija" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Cilindro
+                            </td>
+
+                            <td>
+
+                                <select id="cilindro">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_cilindro" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Señalización
+                            </td>
+
+                            <td>
+
+                                <select id="senalizacion">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_senalizacion" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Demarcación
+                            </td>
+
+                            <td>
+
+                                <select id="demarcacion">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="SI">
+                                        SI
+                                    </option>
+
+                                    <option value="NO">
+                                        NO
+                                    </option>
+
+                                </select>
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="obs_demarcacion" placeholder="Observación...">
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- REVISADO POR (FUERA DE LA TABLA) -->
+
+            <div class="campo">
+
+                <label for="revisado_por">
+                    Revisado Por
+                </label>
+
+                <select id="revisado_por">
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="Paula Patiño">
+                        Paula Patiño
+                    </option>
+
+                    <option value="Andres Garzon">
+                        Andres Garzon
+                    </option>
+
+                    <option value="Angela Tijaro">
+                        Angela Tijaro
+                    </option>
+
+                </select>
+
+            </div>
+            
+            <!-- REGISTRO FOTOGRÁFICO -->
+
+            <h2>
+                Registro Fotográfico
+            </h2>
+
+            <div class="campo">
+                <label for="foto-extintor">Tomar o adjuntar foto del estado actual:</label>
+                
+                <input 
+                    type="file" 
+                    id="foto-extintor" 
+                    accept="image/*" 
+                    capture="environment"
+                >
+                
+                <!-- Vista previa de la foto -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <img id="preview-foto" src="" alt="Vista previa de la foto" style="display: none; max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ccc;">
+                </div>
+            </div>
+
+
+            <!-- DATOS -->
+
+            <h2>
+                Datos de la inspección
+            </h2>
+
+
+            <div class="campo">
+
+                <label for="proceso">
+                    Proceso realizado
+                </label>
+
+                <select id="proceso">
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="SIN REVISAR">
+                        SIN REVISAR
+                    </option>
+
+                    <option value="REVISADO">
+                        REVISADO
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="vencimiento">
+                    Fecha de vencimiento verificada
+                </label>
+
+                <input
+                    type="date"
+                    id="vencimiento">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="estado">
+                    Estado general
+                </label>
+
+                <select id="estado">
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="VENCIDO">
+                        VENCIDO
+                    </option>
+
+                    <option value="PRÓXIMO A VENCER">
+                        PRÓXIMO A VENCER
+                    </option>
+
+                    <option value="BUENO / AL DÍA">
+                        BUENO / AL DÍA
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- MENSAJE -->
+
+            <div
+                id="mensaje"
+                class="mensaje">
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="botones">
+
+                <button
+                    class="guardar"
+                    onclick="guardarInspeccion()">
+
+                    💾 GUARDAR INSPECCIÓN
+
+                </button>
+
+
+                <button
+                    class="volver"
+                    onclick="mostrarInformacion()">
+
+                    ← INFORMACIÓN
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
 
 </div>
 
 
-<!-- MENSAJE DE ERROR -->
-
-<div
-id="error"
-class="error">
-</div>
-
-
-<!-- TABLA -->
-
-<div class="tabla-contenedor">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>AÑO</th>
-
-<th>MES</th>
-
-<th>FECHA</th>
-
-<th>REVISIÓN</th>
-
-<th>N° EXTINTOR</th>
-
-<th>TIPO AGENTE</th>
-
-<th>TIPO EXTINTOR</th>
-
-<th>CAPACIDAD</th>
-
-<th>ALTURA</th>
-
-<th>MES VENC.</th>
-
-<th>AÑO VENC.</th>
-
-<th>UBICACIÓN</th>
-
-<th>ESTADO</th>
-
-<th>ACCIONES</th>
-
-</tr>
-
-</thead>
-
-
-<tbody
-id="tablaExtintores">
-</tbody>
-
-
-</table>
-
-</div>
-
-
-<!-- INFORMACIÓN -->
-
-<div class="info">
-
-<b>
-Total de extintores:
-</b>
-
-<span
-id="total">
-0
-</span>
-
-<br>
-<br>
-
-<b>
-Fecha:
-</b>
-
-<span
-id="fecha">
-</span>
-
-</div>
-
-
-</div>
-
-
-<!-- =========================
+<!-- =====================================================
      DATOS
-========================= -->
+====================================================== -->
 
 <script src="datos.js"></script>
 
 
 <script>
 
-
 /* =====================================================
-   VERIFICAR QUE DATOS.JS CARGÓ CORRECTAMENTE
+   MANEJO DE FOTOGRAFÍA (CÁMARA / ARCHIVO)
 ===================================================== */
 
-if (
-    typeof extintores === "undefined"
-) {
+let fotoBase64 = "";
 
-    const error =
-        document.getElementById("error");
+const inputFoto = document.getElementById('foto-extintor');
+const previewFoto = document.getElementById('preview-foto');
 
-    error.innerText =
-        "❌ No se pudo cargar datos.js. Verifica que datos.js esté en la misma carpeta que index.html.";
-
-    error.style.display =
-        "block";
-
-}
-
-
-/* =====================================================
-   MOSTRAR TABLA
-===================================================== */
-
-function mostrarTabla() {
-
-
-    const tabla =
-        document.getElementById(
-            "tablaExtintores"
-        );
-
-
-    tabla.innerHTML = "";
-
-
-    if (
-        typeof extintores === "undefined"
-    ) {
-
-        return;
-
+inputFoto.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            fotoBase64 = event.target.result;
+            previewFoto.src = fotoBase64;
+            previewFoto.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        fotoBase64 = "";
+        previewFoto.style.display = 'none';
+        previewFoto.src = "";
     }
+});
 
 
-    extintores.forEach(
-        function(ext) {
+/* =====================================================
+   OBTENER ID DEL EXTINTOR
+===================================================== */
 
-
-            /* =========================
-               BUSCAR INSPECCIÓN GUARDADA
-            ========================= */
-
-            let inspeccion = null;
-
-
-            try {
-
-                inspeccion =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "inspeccion_" +
-                            ext.id
-                        )
-                    );
-
-            }
-
-            catch(error) {
-
-                inspeccion = null;
-
-            }
-
-
-            /* =========================
-               ESTADO
-            ========================= */
-
-            let estado =
-                inspeccion
-                ? inspeccion.estado
-                : "SIN REVISAR";
-
-
-            let clase =
-                "sin-revisar";
-
-
-            if (
-                estado === "VENCIDO"
-            ) {
-
-                clase =
-                    "vencido";
-
-            }
-
-            else if (
-                estado === "PRÓXIMO A VENCER"
-            ) {
-
-                clase =
-                    "proximo";
-
-            }
-
-            else if (
-                estado === "BUENO / AL DÍA"
-            ) {
-
-                clase =
-                    "bueno";
-
-            }
-
-
-            /* =========================
-               CREAR FILA
-            ========================= */
-
-            const fila =
-                document.createElement("tr");
-
-
-            fila.innerHTML = `
-
-                <td>
-                    2026
-                </td>
-
-                <td>
-                    AGOSTO
-                </td>
-
-                <td>
-                    ${ext.fecha || ""}
-                </td>
-
-                <td>
-                    ${ext.revision || ""}
-                </td>
-
-                <td>
-                    <b>
-                        ${ext.id}
-                    </b>
-                </td>
-
-                <td>
-                    ${ext.agente || ""}
-                </td>
-
-                <td>
-                    ${ext.tipo || ""}
-                </td>
-
-                <td>
-                    ${ext.capacidad || ""}
-                </td>
-
-                <td>
-                    ${ext.altura || ""}
-                </td>
-
-                <td>
-                    ${ext.mesVencimiento || ""}
-                </td>
-
-                <td>
-                    ${ext.anioVencimiento || ""}
-                </td>
-
-                <td>
-                    ${ext.ubicacion || ""}
-                </td>
-
-                <td>
-
-                    <span
-                        class="estado ${clase}">
-
-                        ${estado}
-
-                    </span>
-
-                </td>
-
-                <td>
-
-                    <button
-                        class="btn inspeccionar"
-                        onclick="abrirInspeccion(${ext.id})">
-
-                        🔎 Inspeccionar
-
-                    </button>
-
-                    <br>
-
-                    <button
-                        class="btn qr"
-                        onclick="abrirQR(${ext.id})">
-
-                        🔳 Ver QR
-
-                    </button>
-
-                </td>
-
-            `;
-
-
-            tabla.appendChild(fila);
-
-
-        }
+const parametros =
+    new URLSearchParams(
+        window.location.search
     );
 
 
-    /* =========================
-       TOTAL
-    ========================= */
-
-    document.getElementById(
-        "total"
-    ).innerText =
-        extintores.length;
-
-}
-
-
-/* =====================================================
-   ABRIR INSPECCIÓN
-===================================================== */
-
-function abrirInspeccion(id) {
-
-    window.location.href =
-        "inspeccion.html?id=" +
-        encodeURIComponent(id);
-
-}
-
-
-/* =====================================================
-   ABRIR QR
-===================================================== */
-
-function abrirQR(id) {
-
-    window.location.href =
-        "codigos-qr.html?id=" +
-        encodeURIComponent(id);
-
-}
+const id =
+    Number(
+        parametros.get("id")
+    );
 
 
 /* =====================================================
    BUSCAR EXTINTOR
 ===================================================== */
 
-function buscarExtintor() {
-
-
-    const texto =
-        document
-        .getElementById("buscar")
-        .value
-        .toLowerCase()
-        .trim();
-
-
-    const filas =
-        document.querySelectorAll(
-            "#tablaExtintores tr"
-        );
-
-
-    filas.forEach(
-        function(fila) {
-
-
-            const contenido =
-                fila.innerText
-                .toLowerCase();
-
-
-            if (
-                contenido.includes(texto)
-            ) {
-
-                fila.style.display =
-                    "";
-
-            }
-
-            else {
-
-                fila.style.display =
-                    "none";
-
-            }
-
-        }
+const extintor =
+    extintores.find(
+        e => Number(e.id) === id
     );
+
+
+/* =====================================================
+   CARGAR INFORMACIÓN DEL EXTINTOR
+===================================================== */
+
+if (extintor) {
+
+    document.getElementById("numero").textContent =
+        extintor.id;
+
+    document.getElementById("ubicacion").textContent =
+        extintor.ubicacion;
+
+    document.getElementById("tipo").textContent =
+        `${extintor.agente} - ${extintor.tipo}`;
+
+    document.getElementById("capacidad").textContent =
+        extintor.capacidad;
+
+    document.getElementById("altura").textContent =
+        extintor.altura;
+
+    document.getElementById("fecha").textContent =
+        extintor.fecha;
+
+    document.getElementById("revision").textContent =
+        extintor.revision;
+
+    document.getElementById("vencimientoProgramado").textContent =
+        `${extintor.mesVencimiento} ${extintor.anioVencimiento}`;
+
+}
+else {
+
+    document.getElementById(
+        "paginaInformacion"
+    ).innerHTML = `
+
+        <div style="
+            background:white;
+            padding:30px;
+            text-align:center;
+            color:#b40000;
+            font-weight:bold;
+        ">
+
+            No se encontró el extintor
+            con ID ${id}.
+
+        </div>
+
+    `;
 
 }
 
 
 /* =====================================================
-   MOSTRAR FECHA ACTUAL
+   MOSTRAR INSPECCIÓN
 ===================================================== */
 
-document.getElementById(
-    "fecha"
-).innerText =
-    new Date().toLocaleDateString(
-        "es-CO"
-    );
+function mostrarInspeccion() {
+
+    document.getElementById(
+        "paginaInformacion"
+    ).style.display = "none";
+
+    document.getElementById(
+        "paginaInspeccion"
+    ).style.display = "block";
+
+    document.getElementById(
+        "subtitulo"
+    ).textContent =
+        "Registro de inspección";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
 
 
 /* =====================================================
-   CARGAR TABLA
+   VOLVER A INFORMACIÓN
 ===================================================== */
 
-mostrarTabla();
+function mostrarInformacion() {
+
+    document.getElementById(
+        "paginaInspeccion"
+    ).style.display = "none";
+
+    document.getElementById(
+        "paginaInformacion"
+    ).style.display = "block";
+
+    document.getElementById(
+        "subtitulo"
+    ).textContent =
+        "Información del extintor";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   GUARDAR INSPECCIÓN
+===================================================== */
+
+function guardarInspeccion() {
+
+    if (!extintor) {
+
+        alert(
+            "No se encontró el extintor."
+        );
+
+        return;
+    }
+
+
+    const inspeccion = {
+
+        id:
+            extintor.id,
+
+        numero:
+            extintor.id,
+
+        ubicacion:
+            extintor.ubicacion,
+
+        tipo:
+            extintor.tipo,
+
+        agente:
+            extintor.agente,
+
+        capacidad:
+            extintor.capacidad,
+
+        altura:
+            extintor.altura,
+
+        fechaRegistro:
+            extintor.fecha,
+
+        revision:
+            extintor.revision,
+
+        vencimientoProgramado:
+            `${extintor.mesVencimiento} ${extintor.anioVencimiento}`,
+
+
+        /* VERIFICACIONES */
+
+        pintura:
+            document.getElementById("pintura").value,
+
+        sello:
+            document.getElementById("sello").value,
+
+        anillo:
+            document.getElementById("anillo").value,
+
+        manometro:
+            document.getElementById("manometro").value,
+
+        valvula:
+            document.getElementById("valvula").value,
+
+        manguera:
+            document.getElementById("manguera").value,
+
+        boquilla:
+            document.getElementById("boquilla").value,
+
+        pasador:
+            document.getElementById("pasador").value,
+
+        soporte:
+            document.getElementById("soporte").value,
+
+        manija:
+            document.getElementById("manija").value,
+
+        cilindro:
+            document.getElementById("cilindro").value,
+
+        senalizacion:
+            document.getElementById("senalizacion").value,
+
+        demarcacion:
+            document.getElementById("demarcacion").value,
+
+
+        /* OBSERVACIONES INDIVIDUALES */
+
+        obs_pintura:
+            document.getElementById("obs_pintura").value,
+
+        obs_sello:
+            document.getElementById("obs_sello").value,
+
+        obs_anillo:
+            document.getElementById("obs_anillo").value,
+
+        obs_manometro:
+            document.getElementById("obs_manometro").value,
+
+        obs_valvula:
+            document.getElementById("obs_valvula").value,
+
+        obs_manguera:
+            document.getElementById("obs_manguera").value,
+
+        obs_boquilla:
+            document.getElementById("obs_boquilla").value,
+
+        obs_pasador:
+            document.getElementById("obs_pasador").value,
+
+        obs_soporte:
+            document.getElementById("obs_soporte").value,
+
+        obs_manija:
+            document.getElementById("obs_manija").value,
+
+        obs_cilindro:
+            document.getElementById("obs_cilindro").value,
+
+        obs_senalizacion:
+            document.getElementById("obs_senalizacion").value,
+
+        obs_demarcacion:
+            document.getElementById("obs_demarcacion").value,
+
+
+        /* REVISADO POR */
+
+        revisado_por:
+            document.getElementById("revisado_por").value,
+
+
+        /* FOTOGRAFÍA */
+
+        foto:
+            fotoBase64,
+
+
+        /* PROCESO */
+
+        proceso:
+            document.getElementById("proceso").value,
+
+
+        /* VENCIMIENTO */
+
+        vencimiento:
+            document.getElementById("vencimiento").value,
+
+
+        /* ESTADO */
+
+        estado:
+            document.getElementById("estado").value,
+
+
+        /* FECHA DE GUARDADO */
+
+        fechaGuardado:
+            new Date().toLocaleString("es-CO")
+
+    };
+
+
+    /* =====================================================
+       GUARDAR PERMANENTEMENTE EN EL NAVEGADOR
+    ===================================================== */
+
+    localStorage.setItem(
+
+        `inspeccion_${extintor.id}`,
+
+        JSON.stringify(inspeccion)
+
+    );
+
+
+    /* =====================================================
+       COMPROBAR QUE SE GUARDÓ
+    ===================================================== */
+
+    const comprobacion =
+        localStorage.getItem(
+            `inspeccion_${extintor.id}`
+        );
+
+
+    const mensaje =
+        document.getElementById("mensaje");
+
+
+    if (comprobacion) {
+
+        mensaje.textContent =
+            `✅ La inspección del extintor N.º ${extintor.id} fue guardada correctamente.`;
+
+        mensaje.className =
+            "mensaje exito";
+
+    }
+    else {
+
+        mensaje.textContent =
+            "❌ No fue posible guardar la inspección.";
+
+        mensaje.className =
+            "mensaje error";
+
+    }
+
+
+    mensaje.style.display =
+        "block";
+
+
+    /* =====================================================
+       OCULTAR MENSAJE DESPUÉS DE 4 SEGUNDOS
+    ===================================================== */
+
+    setTimeout(function() {
+
+        mensaje.style.display =
+            "none";
+
+    }, 4000);
+
+}
+
+
+/* =====================================================
+   CARGAR INSPECCIÓN GUARDADA
+===================================================== */
+
+function cargarInspeccionGuardada() {
+
+    const guardada =
+        localStorage.getItem(
+            `inspeccion_${id}`
+        );
+
+
+    /* Si nunca se ha guardado, no hacemos nada */
+
+    if (!guardada) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const inspeccion =
+            JSON.parse(guardada);
+
+
+        /* VERIFICACIONES */
+
+        document.getElementById("pintura").value =
+            inspeccion.pintura || "";
+
+        document.getElementById("sello").value =
+            inspeccion.sello || "";
+
+        document.getElementById("anillo").value =
+            inspeccion.anillo || "";
+
+        document.getElementById("manometro").value =
+            inspeccion.manometro || "";
+
+        document.getElementById("valvula").value =
+            inspeccion.valvula || "";
+
+        document.getElementById("manguera").value =
+            inspeccion.manguera || "";
+
+        document.getElementById("boquilla").value =
+            inspeccion.boquilla || "";
+
+        document.getElementById("pasador").value =
+            inspeccion.pasador || "";
+
+        document.getElementById("soporte").value =
+            inspeccion.soporte || "";
+
+        document.getElementById("manija").value =
+            inspeccion.manija || "";
+
+        document.getElementById("cilindro").value =
+            inspeccion.cilindro || "";
+
+        document.getElementById("senalizacion").value =
+            inspeccion.senalizacion || "";
+
+        document.getElementById("demarcacion").value =
+            inspeccion.demarcacion || "";
+
+
+        /* OBSERVACIONES INDIVIDUALES */
+
+        document.getElementById("obs_pintura").value =
+            inspeccion.obs_pintura || "";
+
+        document.getElementById("obs_sello").value =
+            inspeccion.obs_sello || "";
+
+        document.getElementById("obs_anillo").value =
+            inspeccion.obs_anillo || "";
+
+        document.getElementById("obs_manometro").value =
+            inspeccion.obs_manometro || "";
+
+        document.getElementById("obs_valvula").value =
+            inspeccion.obs_valvula || "";
+
+        document.getElementById("obs_manguera").value =
+            inspeccion.obs_manguera || "";
+
+        document.getElementById("obs_boquilla").value =
+            inspeccion.obs_boquilla || "";
+
+        document.getElementById("obs_pasador").value =
+            inspeccion.obs_pasador || "";
+
+        document.getElementById("obs_soporte").value =
+            inspeccion.obs_soporte || "";
+
+        document.getElementById("obs_manija").value =
+            inspeccion.obs_manija || "";
+
+        document.getElementById("obs_cilindro").value =
+            inspeccion.obs_cilindro || "";
+
+        document.getElementById("obs_senalizacion").value =
+            inspeccion.obs_senalizacion || "";
+
+        document.getElementById("obs_demarcacion").value =
+            inspeccion.obs_demarcacion || "";
+
+
+        /* REVISADO POR */
+
+        document.getElementById("revisado_por").value =
+            inspeccion.revisado_por || "";
+
+
+        /* FOTOGRAFÍA */
+
+        fotoBase64 = inspeccion.foto || "";
+        if (fotoBase64) {
+            previewFoto.src = fotoBase64;
+            previewFoto.style.display = 'block';
+        } else {
+            previewFoto.style.display = 'none';
+            previewFoto.src = "";
+        }
+
+
+        /* PROCESO */
+
+        document.getElementById("proceso").value =
+            inspeccion.proceso || "";
+
+
+        /* VENCIMIENTO */
+
+        document.getElementById("vencimiento").value =
+            inspeccion.vencimiento || "";
+
+
+        /* ESTADO */
+
+        document.getElementById("estado").value =
+            inspeccion.estado || "";
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error al cargar la inspección guardada:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CARGAR AUTOMÁTICAMENTE AL ABRIR
+===================================================== */
+
+cargarInspeccionGuardada();
+
 
 </script>
 
