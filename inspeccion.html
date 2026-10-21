@@ -461,7 +461,7 @@
     </div>
 
 
-    <!-- =====================================================
+   <!-- =====================================================
         SEGUNDA PARTE
     ====================================================== -->
 
@@ -475,13 +475,13 @@
 
             <div class="tabla-contenedor">
 
-                <table>
+                <table style="width: 100%; border-collapse: collapse;">
 
                     <thead>
                         <tr>
-                            <th>Elemento a verificar</th>
-                            <th>Cumple/No Cumple</th>
-                            <th>Observaciones</th>
+                            <th style="padding: 8px; text-align: left;">Elemento a verificar</th>
+                            <th style="padding: 8px; text-align: center;">Cumple/No Cumple</th>
+                            <th style="padding: 8px; text-align: left;">Observaciones</th>
                         </tr>
                     </thead>
 
@@ -489,194 +489,196 @@
 
                         <!-- Pintura -->
                         <tr>
-                            <td>Pintura</td>
-                            <td>
+                            <td style="padding: 8px;">Pintura</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="pintura">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_pintura" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_pintura" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Sello -->
                         <tr>
-                            <td>Sello</td>
-                            <td>
+                            <td style="padding: 8px;">Sello</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="sello">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_sello" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_sello" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Anillo -->
                         <tr>
-                            <td>Anillo</td>
-                            <td>
+                            <td style="padding: 8px;">Anillo</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="anillo">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_anillo" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_anillo" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Manómetro -->
                         <tr>
-                            <td>Manómetro</td>
-                            <td>
+                            <td style="padding: 8px;">Manómetro</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="manometro">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_manometro" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_manometro" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Válvula -->
                         <tr>
-                            <td>Válvula</td>
-                            <td>
+                            <td style="padding: 8px;">Válvula</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="valvula">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_valvula" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_valvula" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Manguera -->
                         <tr>
-                            <td>Manguera</td>
-                            <td>
+                            <td style="padding: 8px;">Manguera</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="manguera">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_manguera" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_manguera" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Boquilla -->
                         <tr>
-                            <td>Boquilla</td>
-                            <td>
+                            <td style="padding: 8px;">Boquilla</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="boquilla">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_boquilla" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_boquilla" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Pasador -->
                         <tr>
-                            <td>Pasador</td>
-                            <td>
+                            <td style="padding: 8px;">Pasador</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="pasador">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_pasador" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_pasador" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Soporte -->
                         <tr>
-                            <td>Soporte</td>
-                            <td>
+                            <td style="padding: 8px;">Soporte</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="soporte">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_soporte" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_soporte" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Manija -->
                         <tr>
-                            <td>Manija</td>
-                            <td>
+                            <td style="padding: 8px;">Manija</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="manija">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_manija" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_manija" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Cilindro -->
                         <tr>
-                            <td>Cilindro</td>
-                            <td>
+                            <td style="padding: 8px;">Cilindro</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="cilindro">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_cilindro" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_cilindro" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
                         <!-- Señalización -->
                         <tr>
-                            <td>Señalización</td>
-                            <td>
+                            <td style="padding: 8px;">Señalización</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="senalizacion">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_senalizacion" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
+                            </td>
                         </tr>
 
                         <!-- Demarcación -->
                         <tr>
-                            <td>Demarcación</td>
-                            <td>
+                            <td style="padding: 8px;">Demarcación</td>
+                            <td style="padding: 8px; text-align: center;">
                                 <select id="demarcacion">
                                     <option value="">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </td>
-                            <td>
-                                <input type="text" id="obs_demarcacion" placeholder="Observación..." style="width: 100%; padding: 5px;">
+                            <td style="padding: 8px;">
+                                <input type="text" id="obs_demarcacion" placeholder="Escribe una observación..." style="width: 100%; padding: 4px;">
                             </td>
                         </tr>
 
@@ -686,12 +688,12 @@
 
             </div>
 
-            <!-- REVISADO POR (FUERA DE LA TABLA) -->
-            <div class="campo" style="margin-top: 20px;">
+            <!-- REVISADO POR (FUERA DE LA TABLA, AL FINAL) -->
+            <div class="campo" style="margin-top: 25px;">
                 <label for="revisado_por">
                     <strong>Revisado Por</strong>
                 </label>
-                <select id="revisado_por">
+                <select id="revisado_por" style="width: 100%; padding: 8px; margin-top: 5px;">
                     <option value="">Seleccione</option>
                     <option value="Paula Patiño">Paula Patiño</option>
                     <option value="Andres Garzon">Andres Garzon</option>
