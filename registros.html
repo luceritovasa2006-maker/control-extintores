@@ -327,6 +327,8 @@ Aquí aparecen las inspecciones que hayas guardado desde la página de inspecci�
 
 <th>ESTADO</th>
 
+<th>REVISADO POR</th>
+
 <th>OBSERVACIONES</th>
 
 <th>FECHA DE GUARDADO</th>
@@ -379,7 +381,7 @@ function mostrarRegistros() {
 
         tabla.innerHTML = `
             <tr>
-                <td colspan="10" class="sin-registros">
+                <td colspan="11" class="sin-registros">
                     ❌ No se pudo cargar datos.js
                 </td>
             </tr>
@@ -456,6 +458,31 @@ function mostrarRegistros() {
 
 
         /* =========================
+           CONSOLIDAR OBSERVACIONES
+        ========================= */
+
+        let listaObs = [];
+
+        if (inspeccion.obs_pintura) listaObs.push("Pintura: " + inspeccion.obs_pintura);
+        if (inspeccion.obs_sello) listaObs.push("Sello: " + inspeccion.obs_sello);
+        if (inspeccion.obs_anillo) listaObs.push("Anillo: " + inspeccion.obs_anillo);
+        if (inspeccion.obs_manometro) listaObs.push("Manómetro: " + inspeccion.obs_manometro);
+        if (inspeccion.obs_valvula) listaObs.push("Válvula: " + inspeccion.obs_valvula);
+        if (inspeccion.obs_manguera) listaObs.push("Manguera: " + inspeccion.obs_manguera);
+        if (inspeccion.obs_boquilla) listaObs.push("Boquilla: " + inspeccion.obs_boquilla);
+        if (inspeccion.obs_pasador) listaObs.push("Pasador: " + inspeccion.obs_pasador);
+        if (inspeccion.obs_soporte) listaObs.push("Soporte: " + inspeccion.obs_soporte);
+        if (inspeccion.obs_manija) listaObs.push("Manija: " + inspeccion.obs_manija);
+        if (inspeccion.obs_cilindro) listaObs.push("Cilindro: " + inspeccion.obs_cilindro);
+        if (inspeccion.obs_senalizacion) listaObs.push("Señalización: " + inspeccion.obs_senalizacion);
+        if (inspeccion.obs_demarcacion) listaObs.push("Demarcación: " + inspeccion.obs_demarcacion);
+        
+        if (inspeccion.observaciones) listaObs.push(inspeccion.observaciones);
+
+        let textoObservaciones = listaObs.length > 0 ? listaObs.join("<br>") : "Sin observaciones";
+
+
+        /* =========================
            CREAR FILA
         ========================= */
 
@@ -499,8 +526,12 @@ function mostrarRegistros() {
 
             </td>
 
+            <td>
+                <b>${inspeccion.revisado_por || "No asignado"}</b>
+            </td>
+
             <td class="observaciones">
-                ${inspeccion.observaciones || "Sin observaciones"}
+                ${textoObservaciones}
             </td>
 
             <td>
@@ -538,7 +569,7 @@ function mostrarRegistros() {
             <tr>
 
                 <td
-                    colspan="10"
+                    colspan="11"
                     class="sin-registros">
 
                     📋 Todavía no hay inspecciones guardadas.
