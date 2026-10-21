@@ -432,13 +432,13 @@
             <div class="dato">
 
                 <div class="titulo">
-                    VENCIMIENTO PROGRAMADO
+                    Descripción
                 </div>
 
                 <div
                     class="valor"
-                    id="vencimientoProgramado">
-                    —
+                    id="Descripción">
+                    
                 </div>
 
             </div>
@@ -493,15 +493,11 @@
                             </th>
 
                             <th>
-                                Observación
+                               Observación<br>
+                            <textarea placeholder="Escribe aquí tu observación..."></textarea>
                             </th>
-                            
-                             <div class="campo">
 
-                <label for="observaciones">
-                    Observaciones encontradas
-                </label>
-
+                                           
                         </tr>
 
                     </thead>
@@ -880,6 +876,26 @@
                                         NO
                                     </option>
 
+                                    <td>
+                                Vencimiento de Extintor 
+                            </td>
+
+                            <td>
+
+                                <select id="Vencimiento de Extintor">
+
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+
+                                    <option value="Mes">
+                                        Mes
+                                    </option>
+
+                                    <option value="Año">
+                                        Año
+                                    </option>
+
 
                                 </select>
 
@@ -893,28 +909,6 @@
                 </table>
 
             </div>
-
-
-            <!-- OBSERVACIONES -->
-
-            <h2>
-                Observaciones
-            </h2>
-
-
-            <div class="campo">
-
-                <label for="observaciones">
-                    Observaciones encontradas
-                </label>
-
-                <textarea
-                    id="observaciones"
-                    placeholder="Escriba aquí las observaciones..."
-                ></textarea>
-
-            </div>
-
 
             <!-- REGISTRO FOTOGRÁFICO -->
 
@@ -974,7 +968,7 @@
             <div class="campo">
 
                 <label for="vencimiento">
-                    Fecha de vencimiento verificada
+                    Fecha de Ultima Inspección
                 </label>
 
                 <input
@@ -987,7 +981,7 @@
             <div class="campo">
 
                 <label for="estado">
-                    Estado general
+                    Revisado por 
                 </label>
 
                 <select id="estado">
@@ -996,16 +990,16 @@
                         Seleccione
                     </option>
 
-                    <option value="VENCIDO">
-                        VENCIDO
+                    <option value="Andres Garzon">
+                        Andres Garzon 
                     </option>
 
-                    <option value="PRÓXIMO A VENCER">
-                        PRÓXIMO A VENCER
+                    <option value="Paula Patiño">
+                        Paula Patiño
                     </option>
 
-                    <option value="BUENO / AL DÍA">
-                        BUENO / AL DÍA
+                    <option value="Angela Tijaro">
+                        Angela Tijaro
                     </option>
 
                 </select>
